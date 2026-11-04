@@ -50,7 +50,7 @@ def load_pipeline():
     try:
         model_path = Path(__file__).resolve().parent / "smart_irrigate_gb_model.joblib"
         import sklearn
-        st.write(Scikit-learn version:", sklearn.__version__)
+        st.write("Scikit-learn version:", sklearn.__version__)
                  return joblib.load(model_path)
     except Exception as e:
         st.error(f"Model loading failed: {e}")
