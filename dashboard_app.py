@@ -46,15 +46,22 @@ menu = st.sidebar.radio("Navigation", ["🏠 Home", "📊 Predict & Advise", "�
 
 # Load pre-trained model safely
 @st.cache_resource
+@st.cache_resource
 def load_pipeline():
     try:
         model_path = Path(__file__).resolve().parent / "smart_irrigate_gb_model.joblib"
+
+        if not model_path.exists():
+            st.error(f"Model file not found: {model_path}")
+            return None
+
         return joblib.load(model_path)
+
     except Exception as e:
         st.error(f"Model loading failed: {e}")
         return None
-model = load_pipeline()
 
+model = load_pipeline()
 if menu == "🏠 Home":
     st.markdown('<div class="main-header"><h1>Smart Irrigate AI</h1><p>AI-Powered Precision Irrigation for a Greener Tomorrow</p></div>', unsafe_allow_html=True)
     st.write("### Welcome to the Smart Farming Control Hub")
