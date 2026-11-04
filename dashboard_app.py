@@ -49,12 +49,14 @@ menu = st.sidebar.radio("Navigation", ["🏠 Home", "📊 Predict & Advise", "�
 def load_pipeline():
     try:
         model_path = Path(__file__).resolve().parent / "smart_irrigate_gb_model.joblib"
+
         if not model_path.exists():
-            st.error(f"Model file not founf: {model_path}")
+            st.error(f"Model file not found: {model_path}")
             return None
-        import sklearn
+
         st.write("Scikit-learn version:", sklearn.__version__)
-                 return joblib.load(model_path)
+        return joblib.load(model_path)
+
     except Exception as e:
         st.error(f"Model loading failed: {e}")
         return None
