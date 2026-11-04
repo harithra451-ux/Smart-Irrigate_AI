@@ -46,7 +46,6 @@ menu = st.sidebar.radio("Navigation", ["🏠 Home", "📊 Predict & Advise", "�
 
 # Load pre-trained model safely
 @st.cache_resource
-@st.cache_resource
 def load_pipeline():
     try:
         model_path = Path(__file__).resolve().parent / "smart_irrigate_gb_model.joblib"
