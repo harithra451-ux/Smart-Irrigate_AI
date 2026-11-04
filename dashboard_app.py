@@ -53,8 +53,6 @@ def load_pipeline():
         if not model_path.exists():
             st.error(f"Model file not found: {model_path}")
             return None
-
-        st.write("Scikit-learn version:", sklearn.__version__)
         return joblib.load(model_path)
 
     except Exception as e:
