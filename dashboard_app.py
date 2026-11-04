@@ -49,7 +49,7 @@ def load_pipeline():
    try:
     model_path = Path(__file__).resolve().parent / "smart_irrigate_gb_model.joblib"
     return joblib.load(model_path)
-except Exception as e:
+  except Exception as e:
     st.error(f"Model loading failed: {e}")
     return None
 
