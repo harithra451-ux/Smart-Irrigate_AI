@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 import joblib
 import numpy as np
-from pathlib import path
+from pathlib import Path
 
 # Set professional green theme config
 st.set_page_config(
